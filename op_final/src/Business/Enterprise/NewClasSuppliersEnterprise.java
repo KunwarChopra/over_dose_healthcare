@@ -8,6 +8,6 @@ package Business.Enterprise;
  *
  * @author kunwa
  */
-public class PharmaciiesEnterprise {
+public class NewClasSuppliersEnterprise {
     
 }
