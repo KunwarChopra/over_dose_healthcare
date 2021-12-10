@@ -15,10 +15,12 @@ import javax.swing.JPanel;
  *
  * @author kunwa
  */
-public class AdminRole {
+public class PatientRole {
+    
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business, Network network) {
-        return new AdminWorkAreaJPanel(userProcessContainer, enterprise);
+        return new PatientWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network);
+        //return null;
     }
 
     @Override
