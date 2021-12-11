@@ -4,6 +4,7 @@
  */
 package userinterface.PatientRole;
 
+import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 
 /**
@@ -36,7 +37,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
 
         label1 = new java.awt.Label();
         label2 = new java.awt.Label();
-        label3 = new java.awt.Label();
+        txtDiagnose = new java.awt.Label();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -46,7 +47,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
         label2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         label2.setText("View Diagnose");
 
-        label3.setText("label3");
+        txtDiagnose.setText("label3");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -61,7 +62,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
                         .addGap(93, 93, 93)
                         .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
-                        .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtDiagnose, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(405, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -72,7 +73,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDiagnose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(419, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -81,6 +82,6 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Label label1;
     private java.awt.Label label2;
-    private java.awt.Label label3;
+    private java.awt.Label txtDiagnose;
     // End of variables declaration//GEN-END:variables
 }

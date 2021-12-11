@@ -8,6 +8,7 @@ package userinterface.SupplierManagerRole;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Organization.SupplierManagerOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 

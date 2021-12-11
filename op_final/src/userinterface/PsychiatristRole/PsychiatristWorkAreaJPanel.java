@@ -8,6 +8,7 @@ package userinterface.PsychiatristRole;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Organization.PsychaitristOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -21,7 +22,7 @@ public class PsychiatristWorkAreaJPanel extends javax.swing.JPanel {
      * Creates new form PsychiatristWorkAreaJPanel
      */
      private JPanel userProcessContainer;
-    private PsychiatristOrganization organization;
+    private PsychaitristOrganization organization;
     private Enterprise enterprise;
     private UserAccount userAccount;
     private Network network;
@@ -29,11 +30,11 @@ public class PsychiatristWorkAreaJPanel extends javax.swing.JPanel {
     public PsychiatristWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
         initComponents();
          this.userProcessContainer = userProcessContainer;
-        this.organization = (PsychiatristOrganization) organization;
+        this.organization = (PsychaitristOrganization) organization;
         this.enterprise = enterprise;
         this.userAccount = account;
         this.network = network;
-        populatePsychiatristTable();
+//        populatePsychiatristTable();
     }
 
     /**

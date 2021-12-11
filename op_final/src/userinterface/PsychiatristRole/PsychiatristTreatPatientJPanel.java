@@ -5,6 +5,7 @@
  */
 package userinterface.PsychiatristRole;
 
+import Business.WorkQueue.WorkRequest;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -37,7 +38,7 @@ public class PsychiatristTreatPatientJPanel extends javax.swing.JPanel {
         Iterator it = entryset.iterator();
         while (it.hasNext()) {
             Map.Entry hb_me = (Map.Entry) it.next();
-            meetComboBox.addItem(hb_me.getKey());
+            meetComboBox.addItem((String) hb_me.getKey()); //Check String -Kunwa
         }
     }
 
@@ -53,7 +54,7 @@ public class PsychiatristTreatPatientJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        meetComboBox = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         button1 = new java.awt.Button();
@@ -66,7 +67,7 @@ public class PsychiatristTreatPatientJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Select Meeting Frequency :");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        meetComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setText("From");
 
@@ -96,7 +97,7 @@ public class PsychiatristTreatPatientJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(48, 48, 48)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(meetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(153, 153, 153)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +118,7 @@ public class PsychiatristTreatPatientJPanel extends javax.swing.JPanel {
                 .addGap(72, 72, 72)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(meetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(jLabel3)
                 .addGap(54, 54, 54)
@@ -149,11 +150,11 @@ public class PsychiatristTreatPatientJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button button1;
     private java.awt.Button button2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> meetComboBox;
     // End of variables declaration//GEN-END:variables
 }

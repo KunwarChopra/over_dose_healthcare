@@ -7,7 +7,9 @@ package userinterface.PharmacistRole;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Organization.PharmacistOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 

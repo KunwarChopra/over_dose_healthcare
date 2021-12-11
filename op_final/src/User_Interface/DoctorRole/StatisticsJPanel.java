@@ -8,6 +8,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 
 /**
@@ -32,7 +33,7 @@ public class StatisticsJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = userAccount;
         this.organization = organization;
-        Loadbarchart();
+//        Loadbarchart();
     }
 
     /**

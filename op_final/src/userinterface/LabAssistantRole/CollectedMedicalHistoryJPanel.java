@@ -6,6 +6,7 @@ package userinterface.LabAssistantRole;
 
 import Business.Enterprise.Enterprise;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.DoctorLabRequest;
 import javax.swing.JPanel;
 
 /**
@@ -33,7 +34,7 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
         this.useraccount = useraccount;
         // system = dB4OUtil.retrieveSystem();
         this.enterprise = enterprise;
-        populateMedicalHistory();
+//        populateMedicalHistory();
     }
 
     /**

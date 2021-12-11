@@ -5,11 +5,12 @@
  */
 package Business.Role;
 
-import Business.Ecosystem;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import User_Interface.DoctorRole.DoctorWorkAreaJPannel;
 import javax.swing.JPanel;
 
 /**
@@ -19,8 +20,8 @@ import javax.swing.JPanel;
     public class DoctorRole extends Role {
 
 // @Override
-        public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business, Network network) {
-        return new DoctorWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network);
+        public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new DoctorWorkAreaJPannel(userProcessContainer, account, organization, enterprise, network);
     }
 
     @Override

@@ -8,6 +8,7 @@ package userinterface.PhysiotherapistRole;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
+import Business.Organization.PhysiotherapistOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 
@@ -32,7 +33,7 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.network = network;
-        populatePhysiodata();
+//        populatePhysiodata();
     }
 
     /**

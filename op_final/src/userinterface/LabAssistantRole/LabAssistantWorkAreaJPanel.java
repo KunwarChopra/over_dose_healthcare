@@ -4,6 +4,7 @@
  */
 package userinterface.LabAssistantRole;
 
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.LabOrganization;
@@ -37,7 +38,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
        this.enterprise = enterprise;
 
         lblname.setText(userAccount.getEmployee().getName());
-        populateLabRequestTable();
+        //populateLabRequestTable();
     }
 
     /**
@@ -57,6 +58,7 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
         button3 = new java.awt.Button();
+        lblname = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -120,7 +122,10 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(57, 57, 57)
+                                .addComponent(lblname, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(152, Short.MAX_VALUE))
         );
@@ -130,7 +135,9 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44)
-                .addComponent(jLabel2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150)
@@ -167,5 +174,6 @@ public class LabAssistantWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblname;
     // End of variables declaration//GEN-END:variables
 }

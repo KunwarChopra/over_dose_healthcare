@@ -7,6 +7,7 @@ package User_Interface.DoctorRole;
 
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
