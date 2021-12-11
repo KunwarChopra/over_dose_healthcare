@@ -16,6 +16,10 @@ import javax.swing.JPanel;
  * @author kunwa
  */
 public class PatientRole {
+
+    public PatientRole() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Ecosystem business, Network network) {
