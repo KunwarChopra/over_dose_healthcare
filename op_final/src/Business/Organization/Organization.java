@@ -8,6 +8,7 @@ import Business.Enterprise.Enterprise;
 import Business.Person.PersonDirectory;
 import Business.Role.Role;
 import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +17,7 @@ import java.util.ArrayList;
  */
 public abstract class Organization {
      private String name;
-//    private WorkQueue workQueue;
+private WorkQueue workQueue;
     private PersonDirectory personDirectory;
     private UserAccountDirectory userAccountDirectory;
     private int organizationID;
@@ -82,17 +83,17 @@ public abstract class Organization {
         return name;
     }
 
-//    public WorkQueue getWorkQueue() {
-//        return workQueue;
-//    }
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
 
-//    public void setWorkQueue(WorkQueue workQueue) {
-//        this.workQueue = workQueue;
-//    }
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
 
     @Override
     public String toString() {

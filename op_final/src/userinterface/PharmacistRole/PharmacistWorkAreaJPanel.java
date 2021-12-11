@@ -56,6 +56,7 @@ private void populateMedData() {
             model.addRow(row);
 
         }
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,7 +69,7 @@ private void populateMedData() {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        pharmaMedRequestJTable = new javax.swing.JTable();
         button1 = new java.awt.Button();
         button2 = new java.awt.Button();
         button3 = new java.awt.Button();
@@ -78,7 +79,7 @@ private void populateMedData() {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Lab Request Received");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        pharmaMedRequestJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -97,7 +98,7 @@ private void populateMedData() {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(pharmaMedRequestJTable);
 
         button1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         button1.setLabel("Assign to me");
@@ -173,6 +174,6 @@ private void populateMedData() {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable pharmaMedRequestJTable;
     // End of variables declaration//GEN-END:variables
 }
