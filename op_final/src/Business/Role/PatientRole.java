@@ -15,7 +15,7 @@ import javax.swing.JPanel;
  *
  * @author kunwa
  */
-public class PatientRole {
+public class PatientRole extends Role{
 
     public PatientRole() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
