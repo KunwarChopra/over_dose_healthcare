@@ -5,7 +5,9 @@
 package userinterface.SystemAdminWorkArea;
 
 import Business.EcoSystem;
+import Business.Network.Network;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -27,9 +29,19 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
 
-//        populateNetworkTable();
+      populateNetworkTable();
     }
 
+    private void populateNetworkTable() {
+        DefaultTableModel model = (DefaultTableModel) networkJTable.getModel();
+
+        model.setRowCount(0);
+        for (Network network : system.getNetworkList()) {
+            Object[] row = new Object[1];
+            row[0] = network.getName();
+            model.addRow(row);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,7 +54,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        networkJTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         button1 = new java.awt.Button();
@@ -53,7 +65,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Manage Network Area");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -72,7 +84,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(networkJTable);
 
         jLabel2.setText("Name");
 
@@ -141,7 +153,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable networkJTable;
     // End of variables declaration//GEN-END:variables
 }
