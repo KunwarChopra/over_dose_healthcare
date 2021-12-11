@@ -10,17 +10,17 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.SystemAdminWorkArea.SystemAdminWorkAreaJPanel;
+import userinterface.PhysiotherapistRole.PhysiotherapistWorkAreaJPanel;
 
 /**
  *
  * @author kunwa
  */
-public class SystemAdminRole extends Role {
+public class PhysiotherapistRole extends Role {
 
     @Override
-    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem system, Network network) {
-        return new SystemAdminWorkAreaJPanel(userProcessContainer, system);
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new PhysiotherapistWorkAreaJPanel(userProcessContainer, account, organization, enterprise, network);
     }
 
     @Override
