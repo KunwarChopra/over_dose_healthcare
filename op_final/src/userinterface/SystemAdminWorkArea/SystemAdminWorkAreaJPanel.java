@@ -4,6 +4,7 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.EcoSystem;
 import javax.swing.JPanel;
 
 /**
@@ -23,7 +24,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
-        populateTree();
+//        populateTree();
     }
 
     /**

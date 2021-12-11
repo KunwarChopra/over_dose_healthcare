@@ -7,7 +7,9 @@ package userinterface.PhysiotherapistRole;
 
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.PhysiotherapistOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 
 /**
@@ -34,7 +36,7 @@ public class treatJPanel extends javax.swing.JPanel {
     this.enterprise = enterprise;
     this.network = network;
     this.request = request;
-    Loadddl();
+//    Loadddl();
     }
 
     /**

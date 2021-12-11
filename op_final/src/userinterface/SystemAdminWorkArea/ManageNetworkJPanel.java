@@ -4,6 +4,7 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.EcoSystem;
 import javax.swing.JPanel;
 
 /**
@@ -26,7 +27,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system = system;
 
-        populateNetworkTable();
+//        populateNetworkTable();
     }
 
     /**

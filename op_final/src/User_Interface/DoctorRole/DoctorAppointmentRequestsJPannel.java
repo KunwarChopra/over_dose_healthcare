@@ -30,18 +30,23 @@ public class DoctorAppointmentRequestsJPannel extends javax.swing.JPanel {
     
     public DoctorAppointmentRequestsJPannel() {
         initComponents();
-        populateRequestTable();
+       // populateRequestTable();
         
-        public DoctorAppointmentRequestsJPanel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
-        initComponents();
-        this.userProcessContainer = userProcessContainer;
-        this.organization = (DoctorOrganization) organization;
-        this.enterprise = enterprise;
-        this.userAccount = account;
-        this.network = network;
 
-        //valueLabel.setText(enterprise.getName());
-        populateRequestTable();
+    }
+    
+    public DoctorAppointmentRequestsJPannel(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, Network network) {
+initComponents();
+this.userProcessContainer = userProcessContainer;
+this.organization = (DoctorOrganization) organization;
+this.enterprise = enterprise;
+this.userAccount = account;
+this.network = network;
+
+
+
+//valueLabel.setText(enterprise.getName());
+//populateRequestTable();
     }
 
     /**

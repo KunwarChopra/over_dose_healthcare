@@ -4,7 +4,7 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-import Business.Ecosystem;
+import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
@@ -22,9 +22,9 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
      */
     
      private JPanel userProcessContainer;
-    private Ecosystem system;
+    private EcoSystem system;
 
-    public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, Ecosystem system) {
+    public ManageEnterpriseAdminJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system = system;

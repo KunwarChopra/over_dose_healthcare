@@ -7,6 +7,7 @@ package User_Interface.DoctorRole;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
 import javax.swing.JPanel;
 
 /**
@@ -32,7 +33,7 @@ public class ViewLabResultcases extends javax.swing.JPanel {
         this.network = network;
         this.enterprise = enterprise;
         this.userAccount = userAccount;
-        popupResult();
+//        popupResult();
     }
 
     /**

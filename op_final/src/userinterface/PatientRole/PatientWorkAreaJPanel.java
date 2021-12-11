@@ -32,7 +32,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         this.enterprise = enterprise;
         this.userAccount = account;
         this.network = network;
-        populateAppointmentListTable();
+        //populateAppointmentListTable();
     }
 
     /**
