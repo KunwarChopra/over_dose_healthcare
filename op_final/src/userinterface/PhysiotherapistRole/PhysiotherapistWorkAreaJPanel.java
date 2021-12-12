@@ -10,7 +10,11 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.PhysiotherapistOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -47,23 +51,33 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
+        assignJButton2 = new java.awt.Button();
+        jButton1 = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        physiotherapistJTable = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Physiotherapist Work Area");
 
-        button1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        button1.setLabel("Assign to Me");
+        assignJButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        assignJButton2.setLabel("Assign to Me");
+        assignJButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assignJButton2ActionPerformed(evt);
+            }
+        });
 
-        button2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        button2.setLabel("Treat Patient");
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1.setLabel("Treat Patient");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        physiotherapistJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -82,7 +96,7 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(physiotherapistJTable);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -98,9 +112,9 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(assignJButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(100, 100, 100)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(180, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -112,8 +126,8 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(243, 243, 243)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(assignJButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(180, 180, 180))
         );
 
@@ -129,13 +143,86 @@ public class PhysiotherapistWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void assignJButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assignJButton2ActionPerformed
+        // TODO add your handling code here:
+        //   System.out.println("assign to me pressed ");
+        String status;
+
+        int selectedRow = physiotherapistJTable.getSelectedRow();
+
+        //    System.out.println(docWorkRequestJTable.getValueAt(selectedRow, 3));
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "please select patient request first.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            status = (String) physiotherapistJTable.getValueAt(selectedRow, 3);
+          
+                WorkRequest request = (WorkRequest) physiotherapistJTable.getValueAt(selectedRow, 0);
+                request.setReceiver(userAccount);
+                request.setStatus("Assigned to physiotherapist");
+                populatePhysiodata();
+                
+           
+
+        }
+    }//GEN-LAST:event_assignJButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         WorkRequest request;
+        int selectedRow = physiotherapistJTable.getSelectedRow();
+
+        //    System.out.println(docWorkRequestJTable.getValueAt(selectedRow, 3));
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "please select patient request first.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+           
+          
+                request = (WorkRequest) physiotherapistJTable.getValueAt(selectedRow, 0);
+                request.setReceiver(userAccount);
+                request.setStatus("Assigned to physiotherapist");
+                populatePhysiodata();
+                
+           
+
+        }
+
+        
+        treatJPanel TreatJPanel = new treatJPanel(userProcessContainer, userAccount, organization, enterprise, network,request);
+        userProcessContainer.add("treatJPanel", TreatJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button2;
+    private java.awt.Button assignJButton2;
+    private java.awt.Button jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable physiotherapistJTable;
     // End of variables declaration//GEN-END:variables
+private void populatePhysiodata() {
+        DefaultTableModel model = (DefaultTableModel) physiotherapistJTable.getModel();
+
+        model.setRowCount(0);
+        for (WorkRequest request : organization.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[5];
+            //    row[0] = request.getMessage();
+            row[0] = request;
+            row[1] = request.getSender().getUsername();
+            row[2] = request.getReceiver() == null? "" :request.getReceiver().getUsername();
+            String result = request.getStatus();
+            // System.out.println(result);
+            row[3] = result == null ? "Waiting" : result;
+
+            row[4] = request.getRequestDate();
+
+            model.addRow(row);
+
+        }
+
+    }
 }

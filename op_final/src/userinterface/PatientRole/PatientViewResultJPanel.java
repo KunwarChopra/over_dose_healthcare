@@ -19,6 +19,8 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
          WorkRequest request;
+         
+         //Check for public here -saurabh
     public PatientViewResultJPanel(JPanel userProcessContainer, WorkRequest request) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -36,7 +38,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         label1 = new java.awt.Label();
-        label2 = new java.awt.Label();
+        jLabel1 = new java.awt.Label();
         txtDiagnose = new java.awt.Label();
 
         setBackground(new java.awt.Color(204, 204, 255));
@@ -44,8 +46,8 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
         label1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         label1.setText("View Patient Result");
 
-        label2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        label2.setText("View Diagnose");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel1.setText("View Diagnose");
 
         txtDiagnose.setText("label3");
 
@@ -60,7 +62,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
                         .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
                         .addComponent(txtDiagnose, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(405, Short.MAX_VALUE))
@@ -72,7 +74,7 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
                 .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDiagnose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(419, Short.MAX_VALUE))
         );
@@ -80,8 +82,8 @@ public class PatientViewResultJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Label jLabel1;
     private java.awt.Label label1;
-    private java.awt.Label label2;
     private java.awt.Label txtDiagnose;
     // End of variables declaration//GEN-END:variables
 }

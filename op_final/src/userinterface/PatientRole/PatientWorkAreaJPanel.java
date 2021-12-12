@@ -9,7 +9,12 @@ import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.PatientOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.PatientAppointmentRequest;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -47,17 +52,17 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        button3 = new java.awt.Button();
+        appointmentJTable = new javax.swing.JTable();
+        btnReqBookAppointment = new java.awt.Button();
+        btnViewDiagnose = new java.awt.Button();
+        refreshTestJButton = new java.awt.Button();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Patient Appointment Booking Requests");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        appointmentJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -76,16 +81,31 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(appointmentJTable);
 
-        button1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        button1.setLabel("Book Appointment");
+        btnReqBookAppointment.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnReqBookAppointment.setLabel("Book Appointment");
+        btnReqBookAppointment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReqBookAppointmentActionPerformed(evt);
+            }
+        });
 
-        button2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        button2.setLabel("View Diagnose");
+        btnViewDiagnose.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnViewDiagnose.setLabel("View Diagnose");
+        btnViewDiagnose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDiagnoseActionPerformed(evt);
+            }
+        });
 
-        button3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        button3.setLabel("Refresh");
+        refreshTestJButton.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        refreshTestJButton.setLabel("Refresh");
+        refreshTestJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshTestJButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -101,11 +121,11 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(81, 81, 81)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnReqBookAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(112, 112, 112)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnViewDiagnose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(123, 123, 123)
-                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(102, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,13 +140,13 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(174, 174, 174)
-                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnReqBookAppointment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(refreshTestJButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnViewDiagnose, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(206, 206, 206))
         );
 
@@ -142,14 +162,57 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnReqBookAppointmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReqBookAppointmentActionPerformed
+        // TODO add your handling code here:
+         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        userProcessContainer.add("BookAppointmentJPanel", new BookAppointmentJPanel(userProcessContainer, userAccount, enterprise));
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnReqBookAppointmentActionPerformed
+
+    private void btnViewDiagnoseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDiagnoseActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = appointmentJTable.getSelectedRow();
+        String status;
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(null, "Please select a row", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }       
+        WorkRequest request = (WorkRequest) appointmentJTable.getValueAt(selectedRow, 0);
+        patientViewResultJPanel patientViewResultJPanel = new patientViewResultJPanel(userProcessContainer, request);
+        userProcessContainer.add("patientViewResultJPanel", patientViewResultJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }//GEN-LAST:event_btnViewDiagnoseActionPerformed
+
+    private void refreshTestJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshTestJButtonActionPerformed
+        // TODO add your handling code here:
+         populateAppointmentListTable();
+    }//GEN-LAST:event_refreshTestJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button2;
-    private java.awt.Button button3;
+    private javax.swing.JTable appointmentJTable;
+    private java.awt.Button btnReqBookAppointment;
+    private java.awt.Button btnViewDiagnose;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private java.awt.Button refreshTestJButton;
     // End of variables declaration//GEN-END:variables
+ public void populateAppointmentListTable() {
+        //To change body of generated methods, choose Tools | Templates.
+        DefaultTableModel model = (DefaultTableModel) appointmentJTable.getModel();
+        model.setRowCount(0);
+        for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
+            Object[] row = new Object[5];
+            row[0] = request;
+            String date = ((PatientAppointmentRequest) request).getAppointmentdate();
+            row[1] = date;
+            row[2] = request.getReceiver();
+            row[3] = request.getStatus();
+            String doctmessage = ((PatientAppointmentRequest) request).getdoctormessage();
+            row[4] = request.getSolution() == null ? "Waiting" : request.getSolution();
+            model.addRow(row);
+        }
+    }
 }

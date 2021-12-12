@@ -9,6 +9,9 @@ import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -47,27 +50,32 @@ public class StatisticsJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        button1 = new java.awt.Button();
+        barchartRequeststatistics = new javax.swing.JPanel();
+        btnBack = new java.awt.Button();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Request Statics");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout barchartRequeststatisticsLayout = new javax.swing.GroupLayout(barchartRequeststatistics);
+        barchartRequeststatistics.setLayout(barchartRequeststatisticsLayout);
+        barchartRequeststatisticsLayout.setHorizontalGroup(
+            barchartRequeststatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 617, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        barchartRequeststatisticsLayout.setVerticalGroup(
+            barchartRequeststatisticsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 208, Short.MAX_VALUE)
         );
 
-        button1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        button1.setLabel(">>Back");
+        btnBack.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        btnBack.setLabel(">>Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -77,13 +85,13 @@ public class StatisticsJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(barchartRequeststatistics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(226, 226, 226)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(91, 91, 91)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(177, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -92,9 +100,9 @@ public class StatisticsJPanel extends javax.swing.JPanel {
                 .addGap(46, 46, 46)
                 .addComponent(jLabel1)
                 .addGap(132, 132, 132)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(barchartRequeststatistics, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
@@ -110,11 +118,84 @@ public class StatisticsJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_btnBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
+    private javax.swing.JPanel barchartRequeststatistics;
+    private java.awt.Button btnBack;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+ private void Loadbarchart() {
+//        if (!(enterprise instanceof Enterprise)) {
+//            JOptionPane.showMessageDialog(null, "Please add Enterprises.");
+//            return;
+//        };
+           int count =0;
+       
+        int medhistcollected_count = 0;
+        int resultfound_count = 0;
+        int assigntodoc_count = 0;
+        int sent_count = 0;
+         int assigntophysio_count = 0;
+           int assigntopsy_count = 0;
+         //Assigned to psychiatrist
+         for(WorkRequest workreq :organization.getWorkQueue().getWorkRequestList())
+        {
+            if(workreq.getStatus().equalsIgnoreCase("sent"))
+            {
+                sent_count++;
+            }
+            else if(workreq.getStatus().equalsIgnoreCase("result found"))
+            {
+                resultfound_count++;
+            }
+             else if(workreq.getStatus().equalsIgnoreCase("assigned to doc"))
+            {
+                assigntodoc_count++;
+            }
+             else if(workreq.getStatus().equalsIgnoreCase("Med Hist Collected For Lab"))
+            {
+                medhistcollected_count++;
+            }
+             else if(workreq.getStatus().equalsIgnoreCase("Assigned to pharmacotherapist"))
+            {
+                assigntophysio_count++;
+            }
+             else if(workreq.getStatus().equalsIgnoreCase("Assigned to psychiatrist"))
+            {
+                assigntopsy_count++;
+            }
+            
+           // workreq
+        }
+        DefaultCategoryDataset DCategorydata = new DefaultCategoryDataset();
+
+        DCategorydata.setValue(sent_count, "sent", "sent");        
+        DCategorydata.setValue(assigntodoc_count, "assignedto doc", "assignedto doc");
+        DCategorydata.setValue(resultfound_count, "Result Found", "Result Found");
+        DCategorydata.setValue(medhistcollected_count, "Med hist collected lab", "Med hist collected lab");
+        DCategorydata.setValue(assigntophysio_count, "Assigned to pharmacotherapist", "Assigned to pharmacotherapist");
+        DCategorydata.setValue(assigntophysio_count, "Assigned to psychiatrist", "Assigned to psychiatrist");
+
+
+        JFreeChart jfreechart = ChartFactory.createBarChart3D("PATIENT REQUEST STATISTICS", "ENTITIES", "COUNT", DCategorydata, PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = jfreechart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        ChartPanel chartp = new ChartPanel(jfreechart, true);
+
+        chartp.setVisible(true);
+        barchartRequeststatistics.removeAll();
+        barchartRequeststatistics.setLayout(new java.awt.BorderLayout());
+        barchartRequeststatistics.add(chartp, BorderLayout.CENTER);
+        barchartRequeststatistics.validate();
+    }
 }
