@@ -220,6 +220,7 @@ public class PsychiatristWorkAreaJPanel extends javax.swing.JPanel {
             model.addRow(row);
 
         }
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button assignJButton2;
     private java.awt.Button jButton1;
