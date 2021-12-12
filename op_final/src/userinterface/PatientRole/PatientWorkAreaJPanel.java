@@ -178,7 +178,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             return;
         }       
         WorkRequest request = (WorkRequest) appointmentJTable.getValueAt(selectedRow, 0);
-        patientViewResultJPanel patientViewResultJPanel = new patientViewResultJPanel(userProcessContainer, request);
+        PatientViewResultJPanel patientViewResultJPanel = new PatientViewResultJPanel(userProcessContainer, request);
         userProcessContainer.add("patientViewResultJPanel", patientViewResultJPanel);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

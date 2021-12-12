@@ -12,6 +12,7 @@ import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+//import userinterface.
 
 /**
  *
@@ -102,7 +103,7 @@ public class DoctorWorkAreaJPannel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        DoctorAppointmentRequestsJPanel doctorAppointmentReq = new DoctorAppointmentRequestsJPanel(userProcessContainer, userAccount, organization, enterprise, network);
+        DoctorAppointmentRequestsJPannel doctorAppointmentReq = new DoctorAppointmentRequestsJPannel(userProcessContainer, userAccount, organization, enterprise, network);
         userProcessContainer.add("DoctorAppointmentJPanel", doctorAppointmentReq);
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();

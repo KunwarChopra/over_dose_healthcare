@@ -34,7 +34,8 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
     /**
      * Creates new form RequestPharmacistForMedicine
      */
-    public RequestPharmacistForMedicine() {
+    public RequestPharmacistForMedicine(JPanel userProcessContainer, WorkRequest request,
+           Network network, UserAccount account, Enterprise enterprise) {
         initComponents();
          this.userProcessContainer = userProcessContainer;
         this.organization = (DoctorOrganization) organization;
@@ -58,13 +59,13 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtpatientname = new javax.swing.JTextField();
-        chkAnt = new java.awt.Checkbox();
         jButton1 = new java.awt.Button();
         jButton2 = new java.awt.Button();
-        chkCam = new java.awt.Checkbox();
-        chkDis = new java.awt.Checkbox();
-        chkAca = new java.awt.Checkbox();
-        chkViv = new java.awt.Checkbox();
+        chkAca = new javax.swing.JCheckBox();
+        chkDis = new javax.swing.JCheckBox();
+        chkCam = new javax.swing.JCheckBox();
+        chkAnt = new javax.swing.JCheckBox();
+        chkViv = new javax.swing.JCheckBox();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -73,9 +74,6 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("For Patient");
-
-        chkAnt.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        chkAnt.setLabel("Antabuse");
 
         jButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jButton1.setLabel("Request Pharmacist");
@@ -93,33 +91,20 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
             }
         });
 
-        chkCam.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        chkCam.setLabel("Campral");
+        chkAca.setText("Acamprosate");
 
-        chkDis.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        chkDis.setLabel("Disulfiram");
+        chkDis.setText("Disulfiram");
 
-        chkAca.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        chkAca.setLabel("Acamprosate");
+        chkCam.setText("Campral");
 
-        chkViv.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        chkViv.setLabel(" Vivitrol");
+        chkAnt.setText("Antabuse");
+
+        chkViv.setText(" Vivitrol");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(chkAca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkDis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkCam, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkAnt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(chkViv, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(176, 176, 176)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 290, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -133,6 +118,19 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtpatientname, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(95, 95, 95)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chkViv)
+                    .addComponent(chkAnt)
+                    .addComponent(chkAca)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(chkDis)
+                            .addComponent(chkCam))
+                        .addGap(210, 210, 210)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 304, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,24 +141,24 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(txtpatientname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(91, 91, 91)
+                .addGap(96, 96, 96)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(chkAca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(chkDis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(chkAca)
                         .addGap(26, 26, 26)
-                        .addComponent(chkCam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(chkDis)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chkCam))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(chkAnt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(chkViv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 96, Short.MAX_VALUE))
+                        .addComponent(chkAnt)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkViv)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 157, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54))
         );
@@ -240,11 +238,11 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Checkbox chkAca;
-    private java.awt.Checkbox chkAnt;
-    private java.awt.Checkbox chkCam;
-    private java.awt.Checkbox chkDis;
-    private java.awt.Checkbox chkViv;
+    private javax.swing.JCheckBox chkAca;
+    private javax.swing.JCheckBox chkAnt;
+    private javax.swing.JCheckBox chkCam;
+    private javax.swing.JCheckBox chkDis;
+    private javax.swing.JCheckBox chkViv;
     private java.awt.Button jButton1;
     private java.awt.Button jButton2;
     private javax.swing.JLabel jLabel1;

@@ -36,19 +36,6 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="chkAca" min="-2" max="-2" attributes="0"/>
-                      <Component id="chkDis" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="chkCam" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="chkAnt" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="chkViv" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
-                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="290" max="32767" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
@@ -67,6 +54,23 @@
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="chkViv" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkAnt" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkAca" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="chkDis" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="chkCam" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="210" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="0" pref="304" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -79,27 +83,27 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <Component id="txtpatientname" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="chkAca" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="chkDis" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="chkCam" min="-2" max="-2" attributes="0"/>
+                          <Component id="chkDis" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="chkCam" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Component id="chkAnt" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="chkViv" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="96" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="157" max="32767" attributes="0"/>
                           <Component id="jButton2" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -127,14 +131,6 @@
         </Component>
         <Component class="javax.swing.JTextField" name="txtpatientname">
         </Component>
-        <Component class="java.awt.Checkbox" name="chkAnt">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="label" type="java.lang.String" value="Antabuse"/>
-          </Properties>
-        </Component>
         <Component class="java.awt.Button" name="jButton1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -157,36 +153,29 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Checkbox" name="chkCam">
+        <Component class="javax.swing.JCheckBox" name="chkAca">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="label" type="java.lang.String" value="Campral"/>
+            <Property name="text" type="java.lang.String" value="Acamprosate"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Checkbox" name="chkDis">
+        <Component class="javax.swing.JCheckBox" name="chkDis">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="label" type="java.lang.String" value="Disulfiram"/>
+            <Property name="text" type="java.lang.String" value="Disulfiram"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Checkbox" name="chkAca">
+        <Component class="javax.swing.JCheckBox" name="chkCam">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="label" type="java.lang.String" value="Acamprosate"/>
+            <Property name="text" type="java.lang.String" value="Campral"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Checkbox" name="chkViv">
+        <Component class="javax.swing.JCheckBox" name="chkAnt">
           <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="1"/>
-            </Property>
-            <Property name="label" type="java.lang.String" value=" Vivitrol"/>
+            <Property name="text" type="java.lang.String" value="Antabuse"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chkViv">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" Vivitrol"/>
           </Properties>
         </Component>
       </SubComponents>
