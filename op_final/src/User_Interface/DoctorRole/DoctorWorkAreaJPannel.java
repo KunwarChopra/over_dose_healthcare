@@ -10,6 +10,7 @@ import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -47,18 +48,23 @@ public class DoctorWorkAreaJPannel extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnViewStatistics = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("View Appointment Request");
-
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jButton2.setText("View Statics");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btnViewStatistics.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnViewStatistics.setText("View Statics");
+        btnViewStatistics.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewStatisticsActionPerformed(evt);
             }
         });
 
@@ -69,7 +75,7 @@ public class DoctorWorkAreaJPannel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(238, 238, 238)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewStatistics, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
                 .addContainerGap(237, Short.MAX_VALUE))
         );
@@ -79,18 +85,34 @@ public class DoctorWorkAreaJPannel extends javax.swing.JPanel {
                 .addGap(152, 152, 152)
                 .addComponent(jButton1)
                 .addGap(92, 92, 92)
-                .addComponent(jButton2)
+                .addComponent(btnViewStatistics)
                 .addContainerGap(197, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnViewStatisticsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewStatisticsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        StatisticsJPanel statisticsJPanel = new StatisticsJPanel(userProcessContainer, userAccount, organization, enterprise, network);
+        userProcessContainer.add("statisticsJPanel", statisticsJPanel);
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_btnViewStatisticsActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DoctorAppointmentRequestsJPanel doctorAppointmentReq = new DoctorAppointmentRequestsJPanel(userProcessContainer, userAccount, organization, enterprise, network);
+        userProcessContainer.add("DoctorAppointmentJPanel", doctorAppointmentReq);
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnViewStatistics;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables
 }

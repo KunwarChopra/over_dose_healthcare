@@ -5,8 +5,14 @@
 package userinterface.LabAssistantRole;
 
 import Business.Enterprise.Enterprise;
+import Business.Network.Network;
+import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.DoctorLabRequest;
+import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -51,22 +57,22 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtGender = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        textArea1 = new java.awt.TextArea();
+        txtAge = new javax.swing.JTextField();
+        txtHealthRisk = new java.awt.TextArea();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtMedicalHist = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        txtResult = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        textArea2 = new java.awt.TextArea();
+        resBtn = new java.awt.Button();
+        backBtn = new java.awt.Button();
+        txtMedConsum = new java.awt.TextArea();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -88,25 +94,35 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Medical History");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtMedicalHist.setColumns(20);
+        txtMedicalHist.setRows(5);
+        jScrollPane1.setViewportView(txtMedicalHist);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("Lab Assesment Result");
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        txtResult.setColumns(20);
+        txtResult.setRows(5);
+        jScrollPane2.setViewportView(txtResult);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel9.setText("Medical Dose Consumption Details");
 
-        button1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        button1.setLabel("Process andSend Result");
+        resBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        resBtn.setLabel("Process andSend Result");
+        resBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resBtnActionPerformed(evt);
+            }
+        });
 
-        button2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        button2.setLabel(">>Back");
+        backBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        backBtn.setLabel(">>Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,7 +143,7 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(166, 166, 166))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel7)
@@ -136,7 +152,7 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(resBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(102, 102, 102))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,17 +164,17 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel6))
                                 .addGap(43, 43, 43)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                                    .addComponent(jTextField2)
-                                    .addComponent(jTextField3))))
+                                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                                    .addComponent(txtGender)
+                                    .addComponent(txtAge))))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMedConsum, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(jLabel9)
-                                        .addComponent(textArea1, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtHealthRisk, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(164, 164, 164)
@@ -181,16 +197,16 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(30, 30, 30)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel6)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(textArea1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtHealthRisk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
@@ -200,9 +216,9 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(textArea2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtMedConsum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(resBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)))
                 .addComponent(jLabel8)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +228,7 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49))))
         );
 
@@ -231,10 +247,186 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void resBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resBtnActionPerformed
+        // TODO add your handling code here:
+        // Result Criteria - 
+        /*  Send to Pharmacotherapist when below conditions are being met 
+                Drug history
+                Alchohal history
+                Heart risk
+                Fever
+                If any medicines consumed more than limit 
+                Injection on hand
+                Opioid Intoxication
+                Opioid Withdrawal
+                Liver Disease
+
+
+           Send to Psychiatrist when below conditions are being met 
+                Depression
+                Anxiety
+                Bad Social Relationships 
+                Blood Pressure Risk
+                Resp risk
+           
+            When symptoms and medical consumtion is normal then patient can be 
+            treated medically 
+         */
+        // Send to Pharmacotherapist when the below criteria is true 
+        if (request.isDrug_history() || request.isAlcohol_history()
+                || request.isHr_risk() || request.isTemp_risk()
+                || (request.isOxycodone_taken() && request.isOxycodone_risk())
+                || (request.isFantanyl_taken() && request.isFantanyl_risk())
+                || (request.isBupre_taken() && request.isBupre_risk())
+                || (request.isMethadone_taken() && request.isMethadone_risk())
+                || (request.isOxymorphone_taken() && request.isOxymorphone_risk())
+                || (request.isInjection_checked()) || (request.isIntoxication_checked())
+                || request.isWithdrawal_checked() || request.isDisease_checked()) {
+            type = "Overdose [Pharmacotherapist]";
+            result = result + "This is an Opioid Overdose case.";
+            solution = "Patient is recommended for Pharmacotherapist.";
+            request.setStatus("Lab req done");
+
+        } // Send to Psychiatrist when the below criteria is true 
+        else if (request.isDepression_history() || request.isAnxiety_history()
+                || request.isDisrupt_history() || request.isBp_risk() || request.isResp_risk()) {
+            type = "Overdose [Psychiatrist]";
+            result = result + "This is an Opioid Overdose case.";
+            solution = "Patient is recommended for Psychiatrist.";
+            request.setStatus("Lab req done");
+
+        } // If not any above criteria then patient can be treated medically 
+        else {
+            type = "Not Overdose [Medical Treatment]";
+            result = result + "This is not an Opioid Overdose case." + "\n"
+                    + "Patient is recommended for medical treatment .";
+            solution = "Patient is recommended for medical treatm.";
+            request.setStatus("Lab req done");
+
+        }
+
+        txtResult.setText(result);
+        /*-----------------------*/
+        int b = request.getHashcode();
+        System.out.println("b" + b);
+        //Dharati
+        Enterprise inEnterprise = null;
+        Organization inOrganization = null;
+        Network inNetwork = null;
+        for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            if (organization.getName().equals("Doctor Organization")) {
+                for (WorkRequest work : organization.getWorkQueue().getWorkRequestList()) {
+                    //                      System.out.println(work.getHashcode());
+                    if (work.getHashcode() == b) {
+                        work.setStatus("Lab req done");
+                        work.setLabresult(result);
+                        work.setResulttype(type);
+                        work.setSolution(solution);
+                    }
+
+                }
+            }
+        }
+
+        JOptionPane.showMessageDialog(null, "Result Sent Successfully");
+    }//GEN-LAST:event_resBtnActionPerformed
+
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backBtnActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LabAssistantWorkAreaJPanel lab_wrk_area = (LabAssistantWorkAreaJPanel) component;
+        lab_wrk_area.populateLabRequestTable();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backBtnActionPerformed
+ public void populateMedicalHistory() {
+
+        txtName.setText(request.getName());
+        txtGender.setText(request.getGender());
+        txtAge.setText(Integer.toString(request.getAge()));
+        String med_hist = "";
+        String health_risk = "";
+        String consum_risk = "";
+        if (request.isDrug_history()) {
+            med_hist = "Drug History Found" + "\n";
+
+        }
+
+        if (request.isAlcohol_history()) {
+            med_hist = med_hist + "Alcohol History Found" + "\n";
+
+        }
+
+        if (request.isDepression_history()) {
+            med_hist = med_hist + "Depression History Found" + "\n";
+        }
+
+        if (request.isAnxiety_history()) {
+            med_hist = med_hist + "Anxiety History Found" + "\n";
+        }
+        if (request.isDisrupt_history()) {
+            med_hist = med_hist + "Bad Social Relationships History Found" + "\n";
+        }
+        if (med_hist.length() > 0) {
+            result = result + med_hist;
+            txtMedicalHist.setText(med_hist);
+        } else {
+            txtMedicalHist.setText("No Severe Medical History Found");
+        }
+
+        if (request.isHr_risk()) {
+            health_risk = "Heart Risk Found" + "\n";
+        }
+
+        if (request.isBp_risk()) {
+            health_risk = "High Blood Pressure Diagnosed" + "\n";
+        }
+
+        if (request.isTemp_risk()) {
+            health_risk = health_risk + "Fever Diagnosed" + "\n";
+        }
+
+        if (request.isResp_risk()) {
+            health_risk = health_risk + "High Respiratory Rate Diagnosed" + "\n";
+        }
+        if (health_risk.length() > 0) {
+            txtHealthRisk.setText(health_risk);
+        } else {
+            txtHealthRisk.setText("No Sever Health Risk Detected");
+        }
+
+        // Calculating consumption risk 
+        if (request.isOxycodone_taken() && request.isOxycodone_risk()) {
+            consum_risk = "Above Limit Oxycodone Conspumtion History" + "\n";
+        }
+
+        if (request.isFantanyl_taken() && request.isFantanyl_risk()) {
+            consum_risk = consum_risk + "Above Limit Fantanyl Conspumtion History" + "\n";
+        }
+
+        if (request.isBupre_taken() && request.isBupre_risk()) {
+            consum_risk = consum_risk + "Above Limit Buprenorphine Conspumtion History" + "\n";
+        }
+
+        if (request.isMethadone_taken() && request.isMethadone_risk()) {
+            consum_risk = consum_risk + "Above Limit Methadon Conspumtion History" + "\n";
+        }
+
+        if (request.isOxymorphone_taken() && request.isOxymorphone_risk()) {
+            consum_risk = consum_risk + "Above Limit Oxymorphone Conspumtion History" + "\n";
+        }
+        if (consum_risk.length() > 0) {
+            txtMedConsum.setText(consum_risk);
+        } else {
+            txtMedConsum.setText("No severe medicine consumption history found");
+        }
+
+ }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button2;
+    private java.awt.Button backBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -247,12 +439,13 @@ public class CollectedMedicalHistoryJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private java.awt.TextArea textArea1;
-    private java.awt.TextArea textArea2;
+    private java.awt.Button resBtn;
+    private javax.swing.JTextField txtAge;
+    private javax.swing.JTextField txtGender;
+    private java.awt.TextArea txtHealthRisk;
+    private java.awt.TextArea txtMedConsum;
+    private javax.swing.JTextArea txtMedicalHist;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextArea txtResult;
     // End of variables declaration//GEN-END:variables
 }

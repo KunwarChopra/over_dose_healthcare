@@ -9,6 +9,7 @@ import Business.Organization.Organization;
 import Business.Person.Person;
 import Business.UserAccount.UserAccount;
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -32,7 +33,7 @@ public class AdminWorkArealJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.enterprise = enterprise;
         valueLabel.setText(enterprise.getName());
-//        FillGraph();
+        FillGraph();
     }
 
     /**
@@ -124,45 +125,71 @@ public class AdminWorkArealJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+     private void userJButtonActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+        ManageUserAccountJPanel muajp = new ManageUserAccountJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("ManageUserAccountJPanel", muajp);
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }                                           
+
+    private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                      
+
+        ManageEmployeeJPanel manageEmployeeJPanel = new ManageEmployeeJPanel(userProcessContainer, enterprise.getOrganizationDirectory());
+        userProcessContainer.add("manageEmployeeJPanel", manageEmployeeJPanel);
+
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+
+    }                                                     
+
+    private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                          
+
+        ManageOrganizationJPanel manageOrganizationJPanel = new ManageOrganizationJPanel(userProcessContainer, enterprise);
+        userProcessContainer.add("manageOrganizationJPanel", manageOrganizationJPanel);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+    }          
     private void FillGraph() {
-//        if (!(enterprise instanceof Enterprise)) {
-//            JOptionPane.showMessageDialog(null, "Please add Enterprises.");
-//            return;
-//        }
-//        int org_count = 0;
-//        int per_count = 0;
-//        int user_count = 0;
-//
-//        for (Organization orgs : enterprise.getOrganizationDirectory().getOrganizationList()) {
-//            org_count++;
-//
-//            for (Person person : orgs.getPersonDirectory().getPersonList()) {
-//                per_count++;
-//            }
-//
-//            for (UserAccount usr : orgs.getUserAccountDirectory().getUserAccountList()) {
-//                user_count++;
-//            }
-//        }
-//
-//        DefaultCategoryDataset DCategorydata = new DefaultCategoryDataset();
-//
-//        DCategorydata.setValue(org_count, "Organizations", "Total of Organizations");
-//        DCategorydata.setValue(per_count, "Persons", "Total Persons");
-//        DCategorydata.setValue(user_count, "Users", "Total Accounts");
-//
-//        JFreeChart jfreechart = ChartFactory.createBarChart3D("ENTERPRISE STATISTICS", "ENTITIES", "COUNT", DCategorydata, PlotOrientation.VERTICAL, true, true, false);
-//
-//        CategoryPlot plot = jfreechart.getCategoryPlot();
-//        plot.setRangeGridlinePaint(Color.BLACK);
-//
-//        ChartPanel chartp = new ChartPanel(jfreechart, true);
-//
-//        chartp.setVisible(true);
-//        barchart.removeAll();
-//        barchart.setLayout(new java.awt.BorderLayout());
-//        barchart.add(chartp, BorderLayout.CENTER);
-//        barchart.validate();
+        if (!(enterprise instanceof Enterprise)) {
+            JOptionPane.showMessageDialog(null, "Please add Enterprises.");
+            return;
+        }
+        int org_count = 0;
+        int per_count = 0;
+        int user_count = 0;
+
+        for (Organization orgs : enterprise.getOrganizationDirectory().getOrganizationList()) {
+            org_count++;
+
+            for (Person person : orgs.getPersonDirectory().getPersonList()) {
+                per_count++;
+            }
+
+            for (UserAccount usr : orgs.getUserAccountDirectory().getUserAccountList()) {
+                user_count++;
+            }
+        }
+    
+        DefaultCategoryDataset DCategorydata = new DefaultCategoryDataset();
+
+        DCategorydata.setValue(org_count, "Organizations", "Total of Organizations");
+        DCategorydata.setValue(per_count, "Persons", "Total Persons");
+        DCategorydata.setValue(user_count, "Users", "Total Accounts");
+
+        JFreeChart jfreechart = ChartFactory.createBarChart3D("ENTERPRISE STATISTICS", "ENTITIES", "COUNT", DCategorydata, PlotOrientation.VERTICAL, true, true, false);
+
+        CategoryPlot plot = jfreechart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+        ChartPanel chartp = new ChartPanel(jfreechart, true);
+
+        chartp.setVisible(true);
+        barchart.removeAll();
+        barchart.setLayout(new java.awt.BorderLayout());
+        barchart.add(chartp, BorderLayout.CENTER);
+        barchart.validate();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
