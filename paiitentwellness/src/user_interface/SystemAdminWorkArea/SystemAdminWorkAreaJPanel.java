@@ -103,11 +103,11 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(36, 47, 65));
 
-        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Selected Node:");
 
-        lblSelectedNode.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        lblSelectedNode.setFont(new java.awt.Font("Century Gothic", 1, 10)); // NOI18N
         lblSelectedNode.setForeground(new java.awt.Color(255, 255, 255));
         lblSelectedNode.setText("<View_selected_node>");
 
@@ -137,7 +137,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnManageAdmin.setBackground(new java.awt.Color(66, 76, 92));
         btnManageAdmin.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         btnManageAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        btnManageAdmin.setText("Manage Enterprise Admin");
+        btnManageAdmin.setText("Manage Admin");
         btnManageAdmin.setBorder(null);
         btnManageAdmin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,15 +152,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSelectedNode, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblSelectedNode)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnManageNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageEnterprise, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(456, Short.MAX_VALUE))
+                .addComponent(btnManageAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(154, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

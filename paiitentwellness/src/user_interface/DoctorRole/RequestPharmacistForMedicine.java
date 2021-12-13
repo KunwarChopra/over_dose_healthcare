@@ -65,13 +65,15 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
         chkViv = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         txtPatientName = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(188, 194, 223));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        chkAca.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        chkAca.setBackground(new java.awt.Color(255, 255, 255));
+        chkAca.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         chkAca.setText("Acamprosate");
         chkAca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +81,8 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
             }
         });
 
-        chkDis.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        chkDis.setBackground(new java.awt.Color(255, 255, 255));
+        chkDis.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         chkDis.setText("Disulfiram");
         chkDis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,10 +90,12 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
             }
         });
 
-        chkCam.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        chkCam.setBackground(new java.awt.Color(255, 255, 255));
+        chkCam.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         chkCam.setText("Campral");
 
-        chkAnt.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        chkAnt.setBackground(new java.awt.Color(255, 255, 255));
+        chkAnt.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         chkAnt.setText("Antabuse");
         chkAnt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,7 +103,8 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
             }
         });
 
-        chkViv.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        chkViv.setBackground(new java.awt.Color(255, 255, 255));
+        chkViv.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         chkViv.setText(" Vivitrol");
         chkViv.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,63 +112,88 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(49, 84, 140));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Request Pharmacist");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel1.setText("For Patient");
 
+        txtPatientName.setFont(new java.awt.Font("Century Gothic", 0, 11)); // NOI18N
+        txtPatientName.setEnabled(false);
+
+        jPanel6.setBackground(new java.awt.Color(36, 47, 65));
+
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Prescription");
+
+        jButton2.setBackground(new java.awt.Color(71, 120, 197));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton2.setText("< Back");
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user_interface/DoctorRole/kindpng_78215511111.png"))); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
-        txtPatientName.setEnabled(false);
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setText(" Prescription");
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton2)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton2)
+                    .addComponent(jLabel6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(chkAnt)
-                            .addComponent(chkCam)
-                            .addComponent(chkDis)
-                            .addComponent(chkAca)
-                            .addComponent(chkViv)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(45, 45, 45)
-                                .addComponent(jButton2))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(chkCam)
+                                .addComponent(chkDis)
+                                .addComponent(chkAca)
+                                .addComponent(chkViv)
+                                .addComponent(chkAnt))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPatientName, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(252, 252, 252)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(280, Short.MAX_VALUE))
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 435, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -177,11 +208,9 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
                 .addComponent(chkAnt)
                 .addGap(29, 29, 29)
                 .addComponent(chkViv)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(295, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(279, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,7 +300,8 @@ public class RequestPharmacistForMedicine extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField txtPatientName;
     // End of variables declaration//GEN-END:variables
 }

@@ -216,55 +216,44 @@ public class ViewLabResultcases extends javax.swing.JPanel {
     }                                             
 
     private void btnphrmacoActionPerformed(java.awt.event.ActionEvent evt) {                                           
-
-           //Email Sending Part
-        emailId = "sojitradharti15@gmail.com";
-        
-        String emailRegex = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$";
-        
-        Pattern pat = Pattern.compile(emailRegex); 
-		if (emailId == null) 
-                {
-                    JOptionPane.showMessageDialog(null, "Please enter a valid email id. It should not start with _ and must contain an email Id with _, . and @ only!!");
-                    return;
-                }
-			
-                else
-                {
-                    if(!(pat.matcher(emailId).matches()) )
-                    {
-                        JOptionPane.showMessageDialog(null, "Please enter a valid email id. It should not start with _ and must contain an email Id with _, . and @ !!");
-                        return;
-                    }   
-                    
-                }
-        
-        if(emailId.equalsIgnoreCase(""))
-        {
-            JOptionPane.showMessageDialog(null, "Please enter an email id before buying the product");
-            return;
-        }
-       
-         sendMail(emailId);
-        //Email Sending part
-        
-        
+        //  
+        //Email Sending Part
+System.out.println("aaa");
+// emailId = "kunwar.chopra@gmail.com";
+//
+// String emailRegex = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$";
+//
+// Pattern pat = Pattern.compile(emailRegex);
+// if (emailId == null)
+// {
+// JOptionPane.showMessageDialog(null, "Please enter a valid email id. It should not start with _ and must contain an email Id with _, . and @ only!!");
+// return;
+// }
+//
+// else
+// {
+// if(!(pat.matcher(emailId).matches()) )
+// {
+// JOptionPane.showMessageDialog(null, "Please enter a valid email id. It should not start with _ and must contain an email Id with _, . and @ !!");
+// return;
+// }
+//
+// }
+//
+// if(emailId.equalsIgnoreCase(""))
+// {
+// JOptionPane.showMessageDialog(null, "Please enter an email id before buying the product");
+// return;
+// }
+//
+// sendMail(emailId);
+// //Email Sending part
+//
+//
+// //pdf part
         //pdf part
         Document document = new Document();
-      try
-      {
-         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("HelloWorld.pdf"));
-         document.open();
-         document.add(new Paragraph("A Hello World PDF document."));
-         document.close();
-         writer.close();
-      } catch (DocumentException e)
-      {
-         e.printStackTrace();
-      } catch (Exception e)
-      {
-         e.printStackTrace();
-      }
+     
         //pdf part
         Org org = null;
      for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){

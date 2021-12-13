@@ -50,9 +50,11 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         btnViewStatistics = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(188, 194, 223));
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(49, 84, 140));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("View Appointment Requests");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,7 +62,9 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewStatistics.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnViewStatistics.setBackground(new java.awt.Color(49, 84, 140));
+        btnViewStatistics.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        btnViewStatistics.setForeground(new java.awt.Color(255, 255, 255));
         btnViewStatistics.setText("View Statistics");
         btnViewStatistics.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +81,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewStatistics, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
